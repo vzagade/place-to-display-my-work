@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script>
+function JavaScriptFetch() {
+var script = document.createElement('script');
+script.src = "https://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=" + document.getElementById("search").value;;
+document.querySelector('head').appendChild(script);
+}
+function jsonFlickrFeed(data) {
+var image = "";
+data.items.forEach(function (element) {
+image += "<img src=\"" + element.media.m + "\"/>";
+});
+
+document.getElementById("outputDiv").innerHTML = image;
+$("#outputDiv").find("img").addClass("img-thumbnail");
+}
+</script>
+</head>
+<body>
+<div class = "container margin">
+	<div class = "jumbotron well "> 
+		<h3 class = "text-center">
+			Search images from flickr 	
+		</h3>	
+	</div>
+	<div class = "panel">
+		<div class = "panel-body">
+			<div class = "form-group">
+				<input id="search" type="text" placeholder="search text" class=""/>
+				<button id="submit" onclick="JavaScriptFetch()" class="btn btn-success">Search</button>
+			</div>
+			<div id="outputDiv">
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
