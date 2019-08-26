@@ -5,7 +5,8 @@ flickrSearch
 
 About this?
 A webpage using Flick API to allow user searching photos with specific words
-It shows list of photos in a grid format.
+It shows list of photos in a grid format. List is a scrollable list.
+Oo image hover the image zoom in.
 
 Additional libraries used are-
 Bootstrap - to facilitate responsiveness to the page to behave platform independently and adapt to change in device size.
